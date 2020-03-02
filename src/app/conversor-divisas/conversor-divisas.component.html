@@ -1,11 +1,22 @@
-<H1>CONVERSOR DE DIVISAS... </H1>
-<p>Divisa SELECCIONADA: {{DivisaA}}</p>
-     <select (change)="cambioSelector()" [(ngModel)]="DivisaA">
-         <option>Euro</option>
-         <option>francoSuizo</option>
-         <option>dolar</option>
-         <option>dolarAu</option>
-         <option>dolarCan</option>
-     </select>
 
-     
+     <h2>Conversor de Divisas</h2>
+
+<input type="text" (keyup)="recalcular('B')" [(ngModel)]="importeA"/>
+<select (change)="recalcular('B')" [(ngModel)]="monedaA">
+    <option>euro</option>
+    <option>dolar</option>
+    <option>libra</option>
+    <option>francosuizo</option>
+    <option>dolaraustraliano</option>
+</select>
+<br>
+<input type="text" (keyup)="recalcular('A')" [(ngModel)]="importeB"/>
+<select (change)="recalcular('A')" [(ngModel)]="monedaB">
+    <option>euro</option>
+    <option>dolar</option>
+    <option>libra</option>
+    <option>francosuizo</option>
+    <option>dolaraustraliano</option>
+</select>
+
+

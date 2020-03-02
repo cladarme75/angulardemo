@@ -1,25 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-const CONVERSOR ={
+import { Component } from '@angular/core';
+
+const FACTORES_CONVERSION = {
   euro: 1,
-  francoSuizo : 0.89898989,
-  dolar:1.2,
-  dolarAu:1.7,
-  dolarcan:0.67,  
+  dolar: 0.9,
+  libra: 1.4,
+  francosuizo: 1.07, 
+  dolaraustraliano:1.67
 }
-cambioSelector():void{
-  this.numero--;
-  console.log("la divisa es : " + this.dº)
-} 
+
 @Component({
   selector: 'app-conversor-divisas',
   templateUrl: './conversor-divisas.component.html',
   styleUrls: ['./conversor-divisas.component.css']
 })
-export class ConversorDivisasComponent implements OnInit {
+export class ConversorDivisasComponent {
 
-  constructor() { }
+  monedaA:string = "euro";
+  monedaB:string = "euro";
+  importeA:number = 1;
+  importeB:number = 1;
 
-  ngOnInit(): void {
+  recalcular(lado:string):void {
+
+    if (lado === 'A'){
+
+      let euro = this.importeB * FACTORES_CONVERSION[this.monedaB];
+      this.importeA = euro / FACTORES_CONVERSION[this.monedaA];
+
+    } else {
+
+      let euro = this.importeA * FACTORES_CONVERSION[this.monedaA];
+      this.importeB = euro / FACTORES_CONVERSION[this.monedaB];
+
+    }
+
+  
   }
-
+  
 }
+
